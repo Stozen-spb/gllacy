@@ -2,78 +2,38 @@
 /* Мета контент главного меню*/
 var loopa=document.querySelector(".loopa");
 var login=document.querySelector(".login");
-
 var metaSearch=document.querySelector(".meta-content.search");
 var metaLogin=document.querySelector(".meta-content.login");
-
 var focusSearch=metaSearch.querySelector("[name=search]");
 var focusEmail=metaLogin.querySelector("[name=email]");
-
 var metaMenu=document.querySelector(".meta-menu");
 var catalogButton=document.querySelector("#catalog-btn");
-
 var cartButton=document.querySelector(".cart");
 var cartMenu=document.querySelector(".cart-menu");
 
+
+loopa.addEventListener("mouseover", function(event) {
+	event.preventDefault();
+	focusSearch.focus();
+});
+
+login.addEventListener("mouseover", function(event) {
+	event.preventDefault();
+	focusEmail.focus();
+});
+
+
 catalogButton.addEventListener("mouseover", function(event) {
-event.preventDefault();
-metaMenu.classList.add("meta-content-show");
+	event.preventDefault();
+	metaMenu.classList.add("meta-content-show");
 });
 
 metaMenu.addEventListener("mouseleave", function(event) {
-metaMenu.classList.remove("meta-content-show");
-});
-
-
-
-
-loopa.addEventListener("mouseover", function(event) {
-event.preventDefault();
-metaSearch.classList.add("meta-content-show");
-metaMenu.classList.remove("meta-content-show");
-metaLogin.classList.remove("meta-content-show");
-cartMenu.classList.remove("meta-content-show");
-focusSearch.focus();
-});
-
-
-metaSearch.addEventListener("mouseleave", function(event) {
-event.preventDefault();
-metaSearch.classList.remove("meta-content-show");
-});
-
-
-login.addEventListener("mouseover", function(event) {
-event.preventDefault();
-metaLogin.classList.add("meta-content-show");
-focusEmail.focus();
-metaSearch.classList.remove("meta-content-show");
-metaMenu.classList.remove("meta-content-show");
-cartMenu.classList.remove("meta-content-show");
-});
-
-
-metaLogin.addEventListener("mouseleave", function(event) {
-event.preventDefault();
-metaLogin.classList.remove("meta-content-show");
-});
-
-cartButton.addEventListener("mouseover", function(event) {
-event.preventDefault();
-cartMenu.classList.add("meta-content-show");
-metaSearch.classList.remove("meta-content-show");
-metaMenu.classList.remove("meta-content-show");
-metaLogin.classList.remove("meta-content-show");
-});
-
-
-cartMenu.addEventListener("mouseleave", function(event) {
-event.preventDefault();
-cartMenu.classList.remove("meta-content-show");
+	metaMenu.classList.remove("meta-content-show");
 });
 
 window.addEventListener("keydown", function(event) {
-if (event.keyCode === 27) 
+	if (event.keyCode === 27) 
 		{
 			if (metaSearch.classList.contains("meta-content-show"))
 			{metaSearch.classList.remove("meta-content-show"); }
